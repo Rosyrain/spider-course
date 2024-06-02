@@ -31,19 +31,19 @@ import pyecharts.options as opts
 class House(object):
     def __init__(self):
         # 创建链接
-        # self.conn = pymysql.Connect(
-        #     host="127.0.0.1",  # 代表本机地址
-        #     port=3306,  # MySQL默认端口
-        #     user="root",  # 用户名 root是最高权限
-        #     password="xxxxxx",  # 数据库的密码
-        #     db="xxxx"  # 指定的数据库
-        # )
+        self.conn = pymysql.Connect(
+            host="127.0.0.1",  # 代表本机地址
+            port=3306,  # MySQL默认端口
+            user="root",  # 用户名 root是最高权限
+            password="xxxxxx",  # 数据库的密码
+            db="xxxx"  # 指定的数据库
+        )
         # 创建游标，用于传递python给MySQL的命令和MySQL返回的内容
-        # self.cursor = self.conn.cursor()
+        self.cursor = self.conn.cursor()
 
         # 此为与mongodb数据库的连接
-        # self.client = pymongo.MongoClient(host='localhost',port=27017)
-        # self.db = self.client["xxxxxx"]
+        self.client = pymongo.MongoClient(host='localhost',port=27017)
+        self.db = self.client["xxxxxx"]
 
         self.headers={
             'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.54'
@@ -125,7 +125,7 @@ class House(object):
             f.write(str(item)+'\n')
 
     def save_mongoDB(self,item):
-        print(item)
+        # print(item)
         self.db.anjuke_house_data.insert_one(item)
 
     def save_excel(self,data):
