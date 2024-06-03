@@ -351,7 +351,11 @@ soup.select("a#link2")
 
 ## 结语
 
-本文的示例放在了我的个人仓库 `https://github.com/rosyrain/spider-course` 的lesson10下面，除了上面的示例，还有一个以 `堆糖` 图片网站为例的BeautifulSoup解析获取图片的示例。欢迎各位**Follow/Star/Fork**  ( •̀ ω •́ )✧
+本文的示例放在了我的个人仓库
+
+ [Python爬虫之路](https://github.com/rosyrain/spider-course)  `https://github.com/rosyrain/spider-course` 
+
+lesson10下面，除了上面的示例，还有一个以 `堆糖` 图片网站为例的BeautifulSoup解析获取图片的示例。欢迎各位**Follow/Star/Fork**  ( •̀ ω •́ )✧
 
 通过堆糖的示例，你可以尝试获取 `https://www.fabiaoqing.com/biaoqing` 的前三页图片。
 
