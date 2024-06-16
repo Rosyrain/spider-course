@@ -14,4 +14,5 @@
 | **lesson9**   | [xpath解析示例--安居客](./lesson9)            |
 | **lesson10**  | [BeautifulSoup解析以及示例代码](./lesson10)   |
 | **lesson11**  | [BeautifulSoup示例--千图获取图片](./lesson11) |
+| **lesson12**  | [re正则表达式](./lesson12)                    |
 
