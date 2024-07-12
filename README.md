@@ -15,4 +15,5 @@
 | **lesson10**  | [BeautifulSoup解析以及示例代码](./lesson10)   |
 | **lesson11**  | [BeautifulSoup示例--千图获取图片](./lesson11) |
 | **lesson12**  | [re正则表达式](./lesson12)                    |
+| **lesson13**  | [re正则表达式示例--豆瓣Top250](./lesson13)    |
 
