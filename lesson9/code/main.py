@@ -58,10 +58,10 @@ class House(object):
 
         div_list = html.xpath('//div[@class="property"]')
 
-        data=[]
+        data = list()
 
         for div in div_list:
-            item={}
+            item = dict()
             try:
                 item['title'] = div.xpath('.//h3/text()')[0]
             except:
@@ -94,6 +94,14 @@ class House(object):
                 item['unit_price'] = div.xpath("./a/div[2]/div[2]/p[2]/text()")[0].replace('\n','').strip(' ')
             except:
                 item['unit_price'] = '无单价信息'
+            try:
+                item["imgs_url"]=list()
+                detail_url = div.xpath("./a/@href")[0]
+                detail_resp = requests.get(detail_url,headers=self.headers)
+                detail_html = etree.HTML(detail_resp.text)
+                item["imgs_url"] = detail_html.xpath('//img[@class="gallery-indicator-image-item"]/@src')
+            except:
+                item["imgs_url"] = "null"
             print(item)
 
             #存入mysql(逐条)
@@ -114,9 +122,10 @@ class House(object):
         self.drawing(df)
 
     def save_mysql(self,item):
-        sql = 'insert into anjuke_house_data(title,type,area,floor,build_time,location,total_price,unit_price)' \
-              'values (%s,%s,%s,%s,%s,%s,%s,%s)'
-        params = [(item['title'],item['type'],item['area'],item['floor'],item['build_time'],item['location'],item['total_price'],item['unit_price'])]
+        sql = 'insert into anjuke_house_data(title,type,area,floor,build_time,location,total_price,unit_price,imgs_url)' \
+              'values (%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+        params = [(item['title'],item['type'],item['area'],item['floor'],item['build_time'],item['location'],item['total_price'],item['unit_price'],item["imgs_url"])]
+
         self.cursor.executemany(sql,params)
         self.conn.commit()
 
