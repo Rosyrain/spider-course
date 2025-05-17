@@ -16,4 +16,5 @@
 | **lesson11**  | [BeautifulSoup示例--千图获取图片](./lesson11) |
 | **lesson12**  | [re正则表达式](./lesson12)                    |
 | **lesson13**  | [re正则表达式示例--豆瓣Top250](./lesson13)    |
+| **lesson14**  | [playwright浏览器自动化](./lesson14)          |
 
